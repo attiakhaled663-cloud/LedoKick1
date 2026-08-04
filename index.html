@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>BloodMoonKing</title>
+
+<style>
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Georgia,serif;
+}
+
+html, body{
+  height:100%;
+  width:100%;
+  overflow:hidden; /* يمنع أي سكرول في الصفحة */
+}
+
+body{
+  background:url("background.png") center center/cover no-repeat fixed;
+  background-color:#0a0000; /* لون احتياطي لو الصورة اتأخرت */
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  position:relative;
+  padding:16px;
+}
+
+body::before{
+  content:"";
+  position:fixed;
+  left:0;
+  top:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,.65);
+  backdrop-filter:blur(2px);
+  z-index:0;
+}
+
+.container{
+  position:relative;
+  z-index:5;
+  width:100%;
+  max-width:400px;
+  max-height:92vh; /* يمنع خروج الصندوق برة الشاشة */
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:30px 20px;
+  background:rgba(0,0,0,.5);
+  border:2px solid rgba(255,0,0,.45);
+  border-radius:22px;
+  box-shadow:0 0 35px rgba(255,0,0,.45);
+  overflow:hidden;
+}
+
+h1{
+  width:100%;
+  font-size:clamp(28px, 8vw, 46px); /* يتصغر تلقائي حسب حجم الشاشة عشان مايطلعش برة */
+  line-height:1.15;
+  color:#ff2020;
+  letter-spacing:1px;
+  text-shadow:
+    0 0 10px red,
+    0 0 25px crimson,
+    0 0 45px darkred;
+  margin-bottom:14px;
+  word-break:break-word;
+  white-space:nowrap;
+}
+
+p{
+  color:#ddd;
+  font-size:clamp(15px, 4.2vw, 20px);
+  line-height:1.5;
+  margin-bottom:26px;
+  letter-spacing:.5px;
+  text-align:center;
+  width:100%;
+}
+
+.btn{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  width:100%;
+  max-width:320px;
+  padding:16px 12px;
+  margin:10px auto 0;
+  text-decoration:none;
+  text-align:center;
+  font-size:clamp(15px, 4.2vw, 19px);
+  font-weight:bold;
+  color:white;
+  background:linear-gradient(180deg,#8d0000,#250000);
+  border:2px solid #ff2b2b;
+  border-radius:14px;
+  transition:.3s;
+  box-shadow:0 0 18px rgba(255,0,0,.45);
+  white-space:nowrap;
+}
+
+.btn:hover{
+  transform:scale(1.03);
+  background:#b00000;
+  box-shadow:0 0 30px red;
+}
+
+.bat{
+  position:fixed;
+  font-size:18px;
+  opacity:.2;
+  color:#ff4444;
+  animation:pulse 2s infinite;
+  pointer-events:none;
+  z-index:1;
+}
+
+@keyframes pulse{
+  0%{ opacity:0; transform:scale(.4); }
+  50%{ opacity:1; transform:scale(1.3); }
+  100%{ opacity:0; transform:scale(.4); }
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+  <h1>BloodMoonKing</h1>
+
+  <p>
+    مرحبًا بك في مملكة القمر الدامي
+  </p>
+
+  <a class="btn"
+     href="https://www.mediafire.com/file/mdqzf5cy0ogvr81/BloodMoonKing.apk/file">
+    ⬇ تحميل BloodMoonKing
+  </a>
+
+  <a class="btn"
+     href="https://www.mediafire.com/file/ap2fwma0gp5brm0/Tokens.zip/file">
+    🩸 تحميل تطبيق التوكنز
+  </a>
+
+</div>
+
+<script>
+for(let i=0;i<25;i++){
+  let bat=document.createElement("div");
+  bat.className="bat";
+  bat.innerHTML="🦇";
+  bat.style.left=Math.random()*95+"vw";
+  bat.style.top=Math.random()*95+"vh";
+  bat.style.animationDelay=(Math.random()*4)+"s";
+  bat.style.fontSize=(10+Math.random()*12)+"px";
+  document.body.appendChild(bat);
+}
+</script>
+
+</body>
+</html>
